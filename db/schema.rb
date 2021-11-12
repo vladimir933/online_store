@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 2021_11_10_125200) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "kind"
     t.text "description"
     t.integer "price"
-    t.integer "rating"
-    t.string "delivery_time"
+    t.integer "rating", default: 0
+    t.string "delivery_time", default: "30"
   end
 
 end

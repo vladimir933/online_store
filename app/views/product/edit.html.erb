@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <%= render partial: 'plug_in/navigation' %>
+    
+    <%= form_for @product, url: product_path do |f| %>
+    <ul>
+      <li>
+        Имя
+        <%= f.text_field :name %>
+      </li>
+      <li>
+        Чекбоксы:<br>
+        Для дома<%= f.check_box :kind, {}, 'Для дома', nil %>
+        Для сада<%= f.check_box :kind, {}, 'Для сада', nil %>
+        Для животных<%= f.check_box :kind, {}, 'Для животных', nil %>
+      </li>
+      <li>
+        Описание
+        <%= f.text_area  :description %></li>
+      <li>
+        Цена
+        <%= f.text_field :price %></li>
+      <li>
+        Время доставки
+        <%= f.text_field :delivery_time %></li>
+      <li>
+      <%= f.submit 'Обновить' %></li>
+    <ul>
+    <% end %>
+
+  </body>
+</html>
