@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   scope :market do
     resources :product
   end
+
+  resources :shopcart
+
 end
