@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <%= render partial: 'plug_in/navigation' %>
+
+    <%= form_for @user, url: session_register_index_path do |f| %>
+      <ul>
+        <li>
+          Имя
+          <%= f.text_field :name %>
+        </li>
+        <li>
+          Фамилия
+          <%= f.text_field :surname %>
+        </li>
+        <li>
+          Дата раждения
+          <%= f.date_field :birthday %>
+        </li>
+        <li>
+          Почта
+          <%= f.email_field :email %>
+        </li>
+        <li>
+          Пароль
+          <%= f.password_field :password %>
+        </li>
+        <li>
+          Пароль подтверждение
+          <%=f.password_field :password_confirmation%>
+        </li>
+        <li>
+          <%= f.hidden_field :registration_time, { :value => Time.now.strftime("%H:%M:%S, %d.%m.%Y") } %>
+        </li>
+        <li>
+          <%= f.submit 'Подтвердить' %>
+        </li>
+      <ul>
+    <% end %>
+
+  </body>
+</html>

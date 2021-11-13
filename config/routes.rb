@@ -9,4 +9,9 @@ Rails.application.routes.draw do
 
   resources :shopcart
 
+  namespace :session do
+    resources :login, only: [:index, :edit]
+    resources :register, only: [:index, :new, :create]
+  end
+
 end
