@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <%= render partial: 'plug_in/navigation' %>
+
+    <%= form_for @user, url: session_login_index_path do |f| %>
+      <ul>
+        <li>
+          Почта
+          <%= f.email_field :email %>
+        </li>
+        <li>
+          Пароль
+          <%= f.password_field :password %>
+        </li>
+        <li>
+          <%= f.submit 'Подтвердить' %>
+        </li>
+      <ul>
+    <% end %>
+
+  </body>
+</html>

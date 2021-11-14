@@ -6,22 +6,31 @@
       <tbody>
         <tr>
 
-        <td>
-          <%= link_to 'Магазин', market_index_path %>
-        </td>
-        
-        <td>
-          <%= link_to 'Корзина', shopcart_index_path %>
-        </td>
+          <td>
+            <%= link_to 'Магазин', market_index_path %>
+          </td>
 
-        <td>
-          <%= link_to 'Войти', session_login_index_path %>
-        </td>
+          <% unless session[:user_id] %>
 
-        <td>
-          <%= link_to 'Зарегистрироваться', new_session_register_path %>
-        </td>
+            <td>
+              <%= link_to 'Войти', new_session_login_path %>
+            </td>
 
+            <td>
+              <%= link_to 'Зарегистрироваться', new_session_register_path %>
+            </td>
+
+          <% else %>
+            
+            <td>
+              <%= link_to 'Корзина', shopcart_index_path %>
+            </td>
+
+            <td>
+              <%= link_to 'Выйти из аккаунта', session_login_path(@user), method: :delete %>
+            </td>
+
+          <% end %>
         </tr>
       </tbody>
     </table>

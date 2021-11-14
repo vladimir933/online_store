@@ -28,6 +28,9 @@
         <%= f.text_field :delivery_time %>
       </li>
       <li>
+        <%= f.hidden_field :seller_id, { :value => @user.id } %>
+      </li>
+      <li>
         <%= f.submit 'Подтвердить' %>
       </li>
     <ul>

@@ -19,14 +19,16 @@ ActiveRecord::Schema.define(version: 2021_11_13_064927) do
     t.string "name"
     t.string "kind"
     t.text "description"
+    t.integer "seller_id"
     t.integer "price"
     t.integer "rating", default: 0
-    t.string "delivery_time", default: "30"
+    t.integer "delivery_time", default: 30
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "surname"
+    t.string "role"
     t.string "email"
     t.date "birthday"
     t.string "password"
