@@ -11,16 +11,16 @@ class Session::SignUpController < Session::ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      redirect_to 
+      redirect_to session_sign_in_path
     else
-      redirect_to 
+      render :new
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :surname, :birthday, :email, :role, :password, :password_confirmation, :registration_time)
+    params.require(:user).permit(:name, :surname, :birthday, :email, :role, :password, :registration_time)
   end
 
 end

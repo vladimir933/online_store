@@ -4,6 +4,11 @@
     <%= render partial: 'plug_in/navigation' %>
 
     <%= form_for @user, url: session_sign_up_path do |f| %>
+
+      <% if @user.errors.any? %>
+        <%= @user.errors.inspect %>
+      <% end %>
+
       <ul>
         <li>
           Имя
