@@ -6,7 +6,9 @@
     <%= form_for @user, url: session_sign_up_path do |f| %>
 
       <% if @user.errors.any? %>
-        <%= @user.errors.inspect %>
+        <% @user.errors.full_messages.each do |message| %>
+          <%= message %><br>
+        <% end %>
       <% end %>
 
       <ul>

@@ -13,12 +13,13 @@ class Session::SignInController < Session::ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:user][:email])
-    if helpers.authenticate?(user)
-      helpers.authorize(user)
+    user = User.find_by_email(params[:email])
+    if user.present? && helpers.authenticate?(user)
+      session[:user_id] = user.id
       redirect_to market_index_path
     else
-      redirect_to 
+      flash[:alert] = 'Invalid login or password'
+      render :new
     end
   end
 

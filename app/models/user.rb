@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    attr_accessor :password, :password_confirmation
+    attr_accessor :password_confirmation
     
     validates :name, :surname, :role, :birthday, presence: true
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
