@@ -1,4 +1,4 @@
-class Session::RegisterController < Session::ApplicationController
+class Session::SignUpController < Session::ApplicationController
 
   def index
 
@@ -11,9 +11,9 @@ class Session::RegisterController < Session::ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      redirect_to session_login_index_path
+      redirect_to 
     else
-      redirect_to new_session_register_path
+      redirect_to 
     end
   end
 

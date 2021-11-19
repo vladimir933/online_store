@@ -13,11 +13,11 @@
           <% unless session[:user_id] %>
 
             <td>
-              <%= link_to 'Войти', new_session_login_path %>
+              <%= link_to 'Войти', session_sign_in_path %>
             </td>
 
             <td>
-              <%= link_to 'Зарегистрироваться', new_session_register_path %>
+              <%= link_to 'Зарегистрироваться', session_sign_up_path %>
             </td>
 
           <% else %>
@@ -27,7 +27,7 @@
             </td>
 
             <td>
-              <%= link_to 'Выйти из аккаунта', session_login_path(@user), method: :delete %>
+              <%= link_to 'Выйти из аккаунта', session_logout_path(@user), method: :delete %>
             </td>
 
           <% end %>

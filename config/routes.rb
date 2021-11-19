@@ -10,8 +10,12 @@ Rails.application.routes.draw do
   resources :shopcart
 
   namespace :session do
-    resources :login
-    resources :register, only: [:index, :new, :create]
+    get 'sign_in', to: 'sign_in#new'
+    post 'sign_in', to: 'sign_in#create'
+    delete 'logout', to: 'sign_in#destroy'
+
+    get 'sign_up', to: 'sign_up#new'
+    post 'sign_up', to: 'sign_up#create'
   end
 
 end

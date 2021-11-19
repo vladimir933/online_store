@@ -1,4 +1,4 @@
-class Session::LoginController < Session::ApplicationController
+class Session::SignInController < Session::ApplicationController
 
   def index
 
@@ -18,7 +18,7 @@ class Session::LoginController < Session::ApplicationController
       helpers.authorize(user)
       redirect_to market_index_path
     else
-      redirect_to new_session_login_path
+      redirect_to 
     end
   end
 
@@ -28,7 +28,7 @@ class Session::LoginController < Session::ApplicationController
 
   def destroy
     session.delete(:user_id)
-    redirect_to new_session_login_path
+    redirect_to session_sign_in_path
   end
 
 end
