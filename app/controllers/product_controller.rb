@@ -11,14 +11,10 @@ class ProductController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: "Train was successfully created." }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.save
+      redirect_to @product
+    else
+      render :new
     end
   end
 

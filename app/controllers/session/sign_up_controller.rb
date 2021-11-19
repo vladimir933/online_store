@@ -20,7 +20,7 @@ class Session::SignUpController < Session::ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :surname, :birthday, :email, :role, :password, :registration_time)
+    params.require(:user).permit(:name, :surname, :birthday, :email, :role, :password, :password_confirmation, :registration_time)
   end
 
 end

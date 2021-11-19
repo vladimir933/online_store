@@ -3,5 +3,6 @@ class User < ApplicationRecord
     
     validates :name, :surname, :role, :birthday, presence: true
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
-    validates :password, length: { minimum: 5, maximum: 15 }, confirmation: true
+    validates :password, length: { in: 5..15 }, confirmation: true
+
 end

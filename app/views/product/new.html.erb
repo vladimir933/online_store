@@ -4,6 +4,13 @@
     <%= render partial: 'plug_in/navigation' %>
     
     <%= form_for @product, url: product_index_path do |f| %>
+
+    <% if @product.errors.any? %>
+      <% @product.errors.full_messages.each do |message| %>
+        <%= message %><br>
+      <% end %>
+    <% end %>
+
     <ul>
       <li>
         Имя

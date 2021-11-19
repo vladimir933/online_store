@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_11_13_064927) do
     t.string "kind"
     t.text "description"
     t.integer "seller_id"
-    t.integer "price"
+    t.float "price", default: 0.0
     t.integer "rating", default: 0
     t.integer "delivery_time", default: 30
   end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :market, only: :index
 
   scope :market do
-    resources :product
+    resources :product 
   end
 
   resources :shopcart
