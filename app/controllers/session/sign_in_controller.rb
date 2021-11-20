@@ -18,7 +18,7 @@ class Session::SignInController < Session::ApplicationController
       session[:user_id] = user.id
       redirect_to market_index_path
     else
-      flash[:alert] = 'Invalid login or password'
+      flash[:alert] = 'Неверный логин или пароль!'
       render :new
     end
   end

@@ -2,53 +2,80 @@
 <html>
   <body>
     <%= render partial: 'plug_in/navigation' %>
+    <div class='form-check'>
+      <%= form_for @user, url: session_sign_up_path do |f| %>
 
-    <%= form_for @user, url: session_sign_up_path do |f| %>
-
-      <% if @user.errors.any? %>
-        <% @user.errors.full_messages.each do |message| %>
-          <%= message %><br>
+        <% if @user.errors.any? %>
+          <% @user.errors.each do |error| %>
+            <div class='alert alert-danger mb-1'>
+              <%= error.message %><br>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
 
-      <ul>
-        <li>
-          Имя
+        <div class='form-label mb-1'>
+          <%= f.label :'Имя' %>
+        </div>
+        <div class='mb-2'>
           <%= f.text_field :name %>
-        </li>
-        <li>
-          Фамилия
+        </div>
+ 
+        <div class='form-label mb-1'>
+          <%= f.label :'Фамилия' %>
+        </div>
+        <div class='mb-2'>
           <%= f.text_field :surname %>
-        </li>
-        <li>
-          Почта
-          <%= f.email_field :email %>
-        </li>
-        <li>
-          Роль:<br>
-          Продавец <%= f.check_box :role, {}, 'Продавец', nil %>
-          Покупатель <%= f.check_box :role, {}, 'Покупатель', nil %>
-        </li>
-        <li>
-          Дата раждения
-          <%= f.date_field :birthday %>
-        </li>
-        <li>
-          Пароль
-          <%= f.password_field :password %>
-        </li>
-        <li>
-          Пароль подтверждение
-          <%=f.password_field :password_confirmation %>
-        </li>
-        <li>
-          <%= f.hidden_field :registration_time, { :value => Time.now.strftime("%H:%M:%S, %d.%m.%Y") } %>
-        </li>
-        <li>
-          <%= f.submit 'Подтвердить' %>
-        </li>
-      <ul>
-    <% end %>
+        </div>
 
+        <div class='form-label mb-1'>
+          <%= f.label :'E-mail' %>
+        </div>
+        <div class='mb-3'>
+          <%= f.email_field :email %>
+        </div>
+
+        <div class='form-label mb-1'>
+          <%= f.label :'Роль:' %>
+        </div>
+
+        <div class='form-check mb-2'> 
+            <%= f.check_box :role, { class: 'form-check-input', multiple: false }, 'Продавец', nil %>
+            <div class='form-check-label mb-1'>
+              <%= f.label :'Продавец' %>
+            </div>
+            
+            <%= f.check_box :role, { class: 'form-check-input', multiple: false }, 'Покупатель', nil %>
+            <div class='form-check-label mb-1'>
+              <%= f.label :'Покупатель' %>
+            </div>
+        </div>
+
+        <div class='form-label mb-1'>
+          <%= f.label :'Дата рождения', class: 'input-group date' %>
+        </div>
+        <div class='mb-2'>    
+          <%= f.date_field :birthday %>
+        </div>
+       
+        <div class='form-label mb-1'>
+          <%= f.label :'Пароль' %>
+        </div>
+        <div class='mb-2'>
+          <%= f.password_field :password %>
+        </div>
+
+        <div class='form-label mb-1'>
+          <%= f.label :'Подтверждение пароля' %>
+        </div>
+        <div class='mb-3'>     
+          <%= f.password_field :password_confirmation %>
+        </div>
+       
+        <%= f.hidden_field :registration_time, { :value => Time.now.strftime("%H:%M:%S, %d.%m.%Y") } %>
+        
+        <%= f.submit 'Подтвердить', class: 'btn btn-primary' %>
+
+      <% end %>
+    </div>
   </body>
 </html>

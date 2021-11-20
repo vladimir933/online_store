@@ -2,29 +2,29 @@
 <html>
   <body>
     <%= render partial: 'plug_in/navigation' %>
+    
+    <div class='d-flex justify-content-center'>
+      <%= form_with url: session_sign_in_path do |f| %>
 
-    <%= form_with url: session_sign_in_path do |f| %>
-      
-      <% if flash.present? %>
-        <% flash.each do |name, message| %>
-          <%= message %>
-        <% end %>
+        <% if flash.present? %>
+          <% flash.each do |name, message| %>
+            <div class='alert alert-danger mb-3'> 
+              <%= message %>
+            </div>
+          <% end %>
+        <% end %>  
+                  
+        <div class='mb-3'>
+          <%= f.email_field :email, placeholder: 'E-mail'%>
+        </div>
+          
+        <div class='mb-3'>
+          <%= f.password_field :password, placeholder: 'Пароль'%>
+        </div>
+
+        <%= f.submit 'Подтвердить', class: 'btn btn-primary' %>
       <% end %>
-
-      <ul>
-        <li>
-          Почта
-          <%= f.email_field :email %>
-        </li>
-        <li>
-          Пароль
-          <%= f.password_field :password %>
-        </li>
-        <li>
-          <%= f.submit 'Подтвердить' %>
-        </li>
-      <ul>
-    <% end %>
-
+    </div>
+  
   </body>
 </html>
