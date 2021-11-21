@@ -4,7 +4,7 @@
     <%= render partial: 'plug_in/navigation' %>
     <div class='form-check'>
       <%= form_for @user, url: session_sign_up_path do |f| %>
-
+        
         <% if @user.errors.any? %>
           <% @user.errors.each do |error| %>
             <div class='alert alert-danger mb-1'>

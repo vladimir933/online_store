@@ -2,7 +2,9 @@
 <html>
   <body>
     <%= render partial: 'plug_in/navigation' %>
+    
     <ul>
+      <li><%= image_tag @product.avatar, width: '100px' %></li>
       <li><%= @product.name %></li>
       <li><%= @product.kind %></li>
       <li><%= @product.description %></li>

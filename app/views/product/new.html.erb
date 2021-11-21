@@ -37,6 +37,8 @@
       <li>
         <%= f.hidden_field :seller_id, { :value => @user.id } %>
       </li>
+
+        <%= f.file_field :avatar %>
       <li>
         <%= f.submit 'Подтвердить' %>
       </li>

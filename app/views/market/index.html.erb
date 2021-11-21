@@ -7,6 +7,7 @@
       <tbody>
         <% @products.each do |product| %>
           <tr>
+            <%= image_tag product.avatar, width: '120px' %>
             <td><%= button_to product.name, product_path(product), method: :get %></td>
             <td><%= link_to 'Изменить', edit_product_path(product), method: :get %></td>
             <td><%= link_to 'Удалить', product, method: :delete %></td>
