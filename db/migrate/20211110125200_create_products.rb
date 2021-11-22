@@ -5,9 +5,9 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.string     :kind
       t.text       :description
       t.integer    :seller_id
-      t.float      :price, default: 0.0
+      t.float      :price
       t.integer    :rating, default: 0
-      t.integer    :delivery_time, default: 30
+      t.integer    :delivery_time
     end
   end
 end

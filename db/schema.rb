@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 2021_11_21_051638) do
     t.string "kind"
     t.text "description"
     t.integer "seller_id"
-    t.float "price", default: 0.0
+    t.float "price"
     t.integer "rating", default: 0
-    t.integer "delivery_time", default: 30
+    t.integer "delivery_time"
   end
 
   create_table "users", force: :cascade do |t|

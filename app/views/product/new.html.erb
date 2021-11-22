@@ -2,48 +2,65 @@
 <html>
   <body>
     <%= render partial: 'plug_in/navigation' %>
-    
-    <%= form_for @product, url: product_index_path do |f| %>
+    <div class='form-check'>
+      <%= form_for @product, url: product_index_path do |f| %>
 
-    <% if @product.errors.any? %>
-      <% @product.errors.full_messages.each do |message| %>
-        <%= message %><br>
-      <% end %>
-    <% end %>
+        <% if @product.errors.any? %>
+          <% @product.errors.each do |error| %>
+            <div class='alert alert-danger mb-1'>
+              <%= error.message %><br>
+            </div>
+          <% end %>
+        <% end %>
 
-    <ul>
-      <li>
-        Имя
-        <%= f.text_field :name %>
-      </li>
-      <li>
-        Чекбоксы:<br>
-        Для дома<%= f.check_box :kind, {}, 'Для дома', nil %>
-        Для сада<%= f.check_box :kind, {}, 'Для сада', nil %>
-        Для животных<%= f.check_box :kind, {}, 'Для животных', nil %>
-      </li>
-      <li>
-        Описание
-        <%= f.text_area  :description %>
-      </li>
-      <li>
-        Цена
-        <%= f.text_field :price %>
-      </li>
-      <li>
-        Время доставки
-        <%= f.text_field :delivery_time %>
-      </li>
-      <li>
+        <div class='mb-1'>
+          <%= f.label :'Название товара' %>
+        </div>
+        <div class='mb-2'>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class='mb-1'>
+          <%= f.label :'Категория товара:' %>
+        </div>
+        <div class='mb-2'>
+          <%= f.select :kind, ['', 'Для дома', 'Для сада', 'Для животных'] %>
+        </div>
+        
+        <div class='mb-1'>
+          <%= f.label :'Описание товара' %>
+        </div>
+        <div class='mb-2'>
+          <%= f.text_area  :description %>
+        </div>
+        
+        <div class='mb-1'>
+          <%= f.label :'Цена' %>
+        </div>
+        <div class='mb-2'>
+          <%= f.text_field :price, placeholder: '0.0' %>
+        </div>
+        
+        <div class='mb-1'>
+          <%= f.label :'Время доставки (в днях)' %>
+        </div>
+        <div class='mb-2'>  
+          <%= f.text_field :delivery_time %>
+        </div>
+
+        <div class='mb-1'>
+          <%= f.label :'Фото товара' %>
+        </div>
+        <div class='mb-3'>
+          <%= f.file_field :avatar %>
+        </div>
+
         <%= f.hidden_field :seller_id, { :value => @user.id } %>
-      </li>
-
-        <%= f.file_field :avatar %>
-      <li>
-        <%= f.submit 'Подтвердить' %>
-      </li>
-    <ul>
-    <% end %>
+          
+        <%= f.submit 'Подтвердить', class: 'btn btn-primary' %>
+    
+      <% end %>
+    </div>
 
   </body>
 </html>

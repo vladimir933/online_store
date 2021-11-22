@@ -3,14 +3,54 @@
   <body>
     <%= render partial: 'plug_in/navigation' %>
     
-    <ul>
-      <li><%= image_tag @product.avatar, width: '100px' %></li>
-      <li><%= @product.name %></li>
-      <li><%= @product.kind %></li>
-      <li><%= @product.description %></li>
-      <li><%= @product.price %></li>
-      <li><%= @product.rating %></li>
-      <li><%= @product.delivery_time %></li>
-      </ul>
+    <div class='form-control'>
+
+      <h2>
+        <%= @product.name %>
+      </h2>
+
+      <% if @product.avatar.attached? %>
+        <div class='mb-2'>
+          <%= image_tag @product.avatar, width: '250px' %>
+        </div>
+      <% end %>
+      
+      <b>
+        Категория товара:
+      </b>
+      <i>
+        <%= @product.kind %>
+      </i>
+      <br>
+
+      <b>
+        Описание товара:
+      </b>
+      <i>
+        <%= @product.description %>
+      </i>
+      <br>
+  
+      <b>
+        Цена товара:
+      </b>
+      <i>
+        <%= @product.price %> руб.
+      </i><br>
+      
+      <b>
+        Рейтинг товара:
+      </b>
+      <i>
+        <%= @product.rating %>
+      </i><br>
+
+      <b>
+        Время доставки:
+      </b>
+      <i>
+        <%= @product.delivery_time %> дней
+      <i>
+      
   </body>
 </html>

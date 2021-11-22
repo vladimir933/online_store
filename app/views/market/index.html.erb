@@ -2,26 +2,42 @@
 <html>
   <body>
     <%= render partial: 'plug_in/navigation' %>
-    <%= button_to 'Добавить товар', new_product_path, method: :get %><br>
-    <table>
-      <tbody>
-        <% @products.each do |product| %>
-          <tr>
-            <%= image_tag product.avatar, width: '120px' %>
-            <td><%= button_to product.name, product_path(product), method: :get %></td>
-            <td><%= link_to 'Изменить', edit_product_path(product), method: :get %></td>
-            <td><%= link_to 'Удалить', product, method: :delete %></td>
-          </tr>
-          <tr>
-            <td>
-              Описание товара:
-              <%= product.description %><br>
-              Цена:
-              <%= product.price %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <% if @user && @user.role == 'Продавец' %>
+      <%= button_to 'Добавить товар', new_product_path, method: :get %><br>
+    <% end %>
+      
+      <% @products.each do |product| %>
+        <div class='form-control'>
+          
+          <h4>
+            <%= link_to product.name, product_path(product), method: :get %>
+          </h4>
+
+          <% if product.avatar.attached? %>
+            <%= image_tag product.avatar, width: '120px' %><br>
+          <% end %>
+
+          <b>
+            Описание товара:
+          </b><br>
+          <i>
+            <%= product.description %><br>
+          </i>
+          
+          <b>
+            Цена:
+          </b>
+          <i>
+            <%= product.price %>
+          </i>
+          <br>
+          <% if @user && product.seller_id == @user.id %>
+            <%= link_to 'Изменить', edit_product_path(product), method: :get %>
+            <%= link_to 'Удалить', product, method: :delete %>
+          <% end %>
+        </div>        
+      <% end %>
+      
+
   </body>
 </html>
