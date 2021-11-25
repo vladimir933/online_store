@@ -2,6 +2,9 @@ class Product < ApplicationRecord
 
     has_one_attached :avatar
 
+    has_many :orders
+    has_many :users, through: :orders
+
     validates :name, length: { in: 2..50, message: 'Недопустимое количество символов в названии товара' }
     validates :kind, presence: { message: 'Не указана категория товара' }
     validates :delivery_time, presence: { message: 'Неверное время доставки товара' }
