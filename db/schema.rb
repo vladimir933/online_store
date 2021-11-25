@@ -43,13 +43,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_063942) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "product_id"
-    t.integer "quantity"
-  end
-
-  create_table "products", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "kind"
     t.text "description"
@@ -57,6 +51,12 @@ ActiveRecord::Schema.define(version: 2021_11_25_063942) do
     t.float "price"
     t.integer "rating", default: 0
     t.integer "delivery_time"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+    t.integer "quantity"
   end
 
   create_table "users", force: :cascade do |t|

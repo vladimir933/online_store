@@ -2,7 +2,7 @@ class User < ApplicationRecord
     attr_accessor :password_confirmation
 
     has_many :orders
-    has_many :products, through: :orders
+    has_many :items, through: :orders
     
     validates :name, length: { in: 2..30, message: 'Недопустимое имя' }
     validates :surname, length: { in: 2..50, message: 'Недопустимая фамилия' }

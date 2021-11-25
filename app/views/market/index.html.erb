@@ -3,37 +3,37 @@
   <body>
     <%= render partial: 'plug_in/navigation' %>
     <% if @user && @user.role == 'Продавец' %>
-      <%= button_to 'Добавить товар', new_product_path, method: :get %><br>
+      <%= button_to 'Добавить товар', new_item_path, method: :get %><br>
     <% end %>
       
-      <% @products.each do |product| %>
+      <% @items.each do |item| %>
         <div class='form-control'>
           
           <h4>
-            <%= link_to product.name, product_path(product), method: :get %>
+            <%= link_to item.name, item_path(item), method: :get %>
           </h4>
 
-          <% if product.avatar.attached? %>
-            <%= image_tag product.avatar, width: '120px' %><br>
+          <% if item.avatar.attached? %>
+            <%= image_tag item.avatar, width: '120px' %><br>
           <% end %>
 
           <b>
             Описание товара:
           </b><br>
           <i>
-            <%= product.description %><br>
+            <%= item.description %><br>
           </i>
           
           <b>
             Цена:
           </b>
           <i>
-            <%= product.price %>
+            <%= item.price %>
           </i>
           <br>
-          <% if @user && product.seller_id == @user.id %>
-            <%= link_to 'Изменить', edit_product_path(product), method: :get %>
-            <%= link_to 'Удалить', product, method: :delete %>
+          <% if @user && item.seller_id == @user.id %>
+            <%= link_to 'Изменить', edit_item_path(item), method: :get %>
+            <%= link_to 'Удалить', item, method: :delete %>
           <% end %>
         </div>        
       <% end %>
