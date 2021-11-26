@@ -1,8 +1,6 @@
 class User < ApplicationRecord
     attr_accessor :password_confirmation
-
-    has_many :orders
-    has_many :items, through: :orders
+    
     has_one  :cart
     
     validates :name, length: { in: 2..30, message: 'Недопустимое имя' }

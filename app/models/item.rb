@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     has_one_attached :avatar
 
     has_many :orders
-    has_many :users, through: :orders
+    has_many :carts, through: :orders
 
     validates :name, length: { in: 2..50, message: 'Недопустимое количество символов в названии товара' }
     validates :kind, presence: { message: 'Не указана категория товара' }
