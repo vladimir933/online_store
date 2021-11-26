@@ -2,6 +2,7 @@ class Item < ApplicationRecord
 
     has_one_attached :avatar
 
+    belongs_to :user
     has_many :orders
     has_many :carts, through: :orders
 

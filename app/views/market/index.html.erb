@@ -31,7 +31,7 @@
             <%= item.price %>
           </i>
           <br>
-          <% if @user && item.seller_id == @user.id %>
+          <% if @user && item.user_id == @user.id %>
             <%= link_to 'Изменить', edit_item_path(item), method: :get %>
             <%= link_to 'Удалить', item, method: :delete %>
           <% end %>

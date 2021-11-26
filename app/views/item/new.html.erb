@@ -55,7 +55,7 @@
           <%= f.file_field :avatar %>
         </div>
 
-        <%= f.hidden_field :seller_id, { :value => @user.id } %>
+        <%= f.hidden_field :user_id, { :value => @user.id } %>
           
         <%= f.submit 'Подтвердить', class: 'btn btn-primary' %>
     

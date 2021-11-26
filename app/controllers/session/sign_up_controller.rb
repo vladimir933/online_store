@@ -1,7 +1,7 @@
 class Session::SignUpController < Session::ApplicationController
+  include SignUpHelper
 
   def index
-
   end
 
   def new
@@ -11,6 +11,7 @@ class Session::SignUpController < Session::ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      create_cart(@user)
       redirect_to session_sign_in_path
     else
       render :new
