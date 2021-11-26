@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    
     attr_accessor :password_confirmation
     
     has_one  :cart

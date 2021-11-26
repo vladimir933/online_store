@@ -53,14 +53,14 @@ ActiveRecord::Schema.define(version: 2021_11_25_071501) do
     t.text "description"
     t.integer "seller_id"
     t.float "price"
-    t.integer "rating", default: 0
+    t.float "rating", default: 0.0
     t.integer "delivery_time"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "item_id"
-    t.integer "quantity"
+    t.integer "cart_id"
+    t.integer "quantity", default: 0
   end
 
   create_table "users", force: :cascade do |t|

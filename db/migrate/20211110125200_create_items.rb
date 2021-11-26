@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.text       :description
       t.integer    :seller_id
       t.float      :price
-      t.integer    :rating, default: 0
+      t.float      :rating, default: 0
       t.integer    :delivery_time
     end
   end
