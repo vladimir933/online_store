@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_071501) do
   create_table "orders", force: :cascade do |t|
     t.integer "item_id"
     t.integer "cart_id"
-    t.integer "quantity", default: 0
+    t.integer "quantity", default: 1
   end
 
   create_table "users", force: :cascade do |t|

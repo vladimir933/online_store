@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     has_one_attached :avatar
 
     belongs_to :user
-    has_many :orders
+    has_many :orders, dependent: :destroy
     has_many :carts, through: :orders
 
     validates :name, length: { in: 2..50, message: 'Недопустимое количество символов в названии товара' }

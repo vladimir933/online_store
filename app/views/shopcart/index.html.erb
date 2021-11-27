@@ -3,6 +3,9 @@
   <body>
     <%= render partial: 'plug_in/navigation' %>
     Корзина товаров:
-    
+      <% @orders.each do |order| %>
+        <h4><%= order.item.name %></h4>
+        <h4><%= order.quantity %></h4>
+      <% end %>
   </body>
 </html>
