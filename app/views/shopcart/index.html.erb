@@ -3,9 +3,25 @@
   <body>
     <%= render partial: 'plug_in/navigation' %>
     Корзина товаров:
-      <% @orders.each do |order| %>
-        <h4><%= order.item.name %></h4>
-        <h4><%= order.quantity %></h4>
+      <% @cart_orders.each do |order| %>
+
+        <h4><%= link_to order.item.name, item_path(order.item) %></h4>
+
+        <% if order.item.avatar.attached? %>
+          <%= image_tag order.item.avatar, width: '120px' %><br>
+        <% end %>
+
+        <b>
+          Количество товаров: 
+        </b>
+        <%= order.quantity %><br>
+        
+        <b>
+          Рейтинг товара: 
+        </b>
+
+        <%= link_to 'Удалить товар из корзины', shopcart_path(order), method: :delete %>
+
       <% end %>
   </body>
 </html>

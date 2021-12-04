@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :market
 
   scope :market do
-    resources :item 
+    resources :item do
+      resources :rate_items, only: %i[create destroy]
+    end
   end
 
   resources :shopcart

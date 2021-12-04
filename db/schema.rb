@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_071501) do
+ActiveRecord::Schema.define(version: 2021_12_04_064335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 2021_11_25_071501) do
     t.string "kind"
     t.text "description"
     t.float "price"
-    t.float "rating", default: 0.0
     t.integer "delivery_time"
   end
 
@@ -61,6 +60,12 @@ ActiveRecord::Schema.define(version: 2021_11_25_071501) do
     t.integer "item_id"
     t.integer "cart_id"
     t.integer "quantity", default: 1
+  end
+
+  create_table "rate_items", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+    t.integer "item_rating"
   end
 
   create_table "users", force: :cascade do |t|
