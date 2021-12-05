@@ -5,7 +5,7 @@
     
     <div class='form-control'>
 
-      <%= form_for @item, url: item_path do |f| %>
+      <%= form_for @item, url: market_item_path do |f| %>
 
         <% if @item.errors.any? %>
           <% @item.errors.each do |error| %>

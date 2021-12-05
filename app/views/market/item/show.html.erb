@@ -20,16 +20,14 @@
       </b>
       <i>
         <%= @item.kind %>
-      </i>
-      <br>
+      </i><br>
 
       <b>
         Описание товара:
       </b>
       <i>
         <%= @item.description %>
-      </i>
-      <br>
+      </i><br>
   
       <b>
         Цена товара:
@@ -37,10 +35,6 @@
       <i>
         <%= @item.price %> руб.
       </i><br>
-      
-      <b>
-        Рейтинг товара:
-      </b>
 
       <b>
         Время доставки:
@@ -49,13 +43,27 @@
         <%= @item.delivery_time %> дней
       <i><br>
 
-      <b>
-        Оценить товар:
-      </b>
-
-      <b>
-        Количество пользователей проголосовало:
-      </b>
+      <% if @user %>
+        <% unless item_rates? %>
+          <b>
+            Оценить товар:
+          </b>
+          <% ItemRate::RATING.each do |rating| %>
+            <%= link_to rating, market_item_item_rate_index_path(@item, item_rating: rating), method: :post %>
+          <% end %>
+        <% else %>
+          <b>
+            Вы поcтавили товару оценку:
+          </b> 
+            <%= item_rates %>
+        <% end %>
+        <br>
+      
+        <b>
+          Количество пользователей проголосовало:
+        </b>
+        <%= votes_count %>
+      <% end %>
       
   </body>
 </html>

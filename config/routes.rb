@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: redirect('/market')
-  resources :market
+  root to: redirect('market')
 
-  scope :market do
+  namespace :market do 
+    resources :order, only: %i[index create destroy]
     resources :item do
-      resources :rate_items, only: %i[create destroy]
+      resources :item_rate, only: %i[create destroy]
     end
+    root to: 'order#index'
   end
 
   resources :shopcart

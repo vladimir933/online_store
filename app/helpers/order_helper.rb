@@ -1,4 +1,4 @@
-module MarketHelper
+module OrderHelper
 
   def make_order
     Order.create(item_id: params[:id], cart_id: @user.cart.id)

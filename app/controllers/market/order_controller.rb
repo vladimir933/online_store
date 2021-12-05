@@ -1,5 +1,5 @@
-class MarketController < ApplicationController
-  include MarketHelper
+class Market::OrderController < Market::ApplicationController
+  include OrderHelper
 
   before_action :find_order, only: %i[create destroy]
 

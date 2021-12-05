@@ -1,6 +1,6 @@
-class CreateRateItems < ActiveRecord::Migration[6.1]
+class CreateItemRates < ActiveRecord::Migration[6.1]
   def change
-    create_table :rate_items do |t|
+    create_table :item_rates do |t|
       t.integer :user_id
       t.integer :item_id
       t.integer :item_rating

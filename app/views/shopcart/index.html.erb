@@ -5,7 +5,7 @@
     Корзина товаров:
       <% @cart_orders.each do |order| %>
 
-        <h4><%= link_to order.item.name, item_path(order.item) %></h4>
+        <h4><%= link_to order.item.name, market_item_path(order.item) %></h4>
 
         <% if order.item.avatar.attached? %>
           <%= image_tag order.item.avatar, width: '120px' %><br>
@@ -19,6 +19,7 @@
         <b>
           Рейтинг товара: 
         </b>
+        <%= total_item_rating(order.item) %><br>
 
         <%= link_to 'Удалить товар из корзины', shopcart_path(order), method: :delete %>
 

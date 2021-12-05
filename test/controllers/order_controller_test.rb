@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RateItemTest < ActiveSupport::TestCase
+class OrderControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

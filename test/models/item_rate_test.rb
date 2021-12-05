@@ -1,6 +1,6 @@
 require "test_helper"
 
-class MarketControllerTest < ActionDispatch::IntegrationTest
+class ItemRateTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

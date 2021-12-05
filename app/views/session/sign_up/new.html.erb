@@ -8,7 +8,7 @@
         <% if @user.errors.any? %>
           <% @user.errors.each do |error| %>
             <div class='alert alert-danger mb-1'>
-              <%= error.message %><br>
+              <%= error.message %>
             </div>
           <% end %>
         <% end %>

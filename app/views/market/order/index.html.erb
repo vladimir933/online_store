@@ -3,14 +3,14 @@
   <body>
     <%= render partial: 'plug_in/navigation' %>
     <% if @user && @user.role == 'Продавец' %>
-      <%= button_to 'Добавить товар', new_item_path, method: :get %><br>
+      <%= button_to 'Добавить товар', new_market_item_path, method: :get %><br>
     <% end %>
       
       <% @items.each do |item| %>
         <div class='form-control'>
           
           <h4>
-            <%= link_to item.name, item_path(item), method: :get %>
+            <%= link_to item.name, market_item_path(item), method: :get %>
           </h4>
 
           <% if item.avatar.attached? %>
@@ -32,12 +32,12 @@
           </i>
           <br>
           <% if @user && item.user_id == @user.id %>
-            <%= link_to 'Изменить', edit_item_path(item), method: :get %>
-            <%= link_to 'Удалить', item, method: :delete %>
+            <%= link_to 'Изменить', edit_market_item_path(item), method: :get %>
+            <%= link_to 'Удалить', market_item_path(item), method: :delete %>
           <% end %>
           <% if @user %>
-            <%= button_to 'Добавить товар в корзину', { controller: :market, action: :create, id: item } %>
-            <%= button_to 'Удалить товар из корзины', { controller: :market, action: :destroy, id: item }, method: :delete %>
+            <%= button_to 'Добавить товар в корзину', { controller: :order, action: :create, id: item } %>
+            <%= button_to 'Удалить товар из корзины', { controller: :order, action: :destroy, id: item }, method: :delete %>
           <% end %>        
         </div>        
       <% end %>
