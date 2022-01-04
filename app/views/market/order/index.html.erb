@@ -1,47 +1,76 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <%= render partial: 'plug_in/navigation' %>
-    <% if @user && @user.role == 'Продавец' %>
-      <%= button_to 'Добавить товар', new_market_item_path, method: :get %><br>
-    <% end %>
-      
-      <% @items.each do |item| %>
-        <div class='form-control'>
-          
-          <h4>
-            <%= link_to item.name, market_item_path(item), method: :get %>
-          </h4>
 
-          <% if item.avatar.attached? %>
-            <%= image_tag item.avatar, width: '120px' %><br>
-          <% end %>
+    <div class='market'>
 
-          <b>
-            Описание товара:
-          </b><br>
-          <i>
-            <%= item.description %><br>
-          </i>
-          
-          <b>
-            Цена:
-          </b>
-          <i>
-            <%= item.price %>
-          </i>
-          <br>
-          <% if @user && item.user_id == @user.id %>
-            <%= link_to 'Изменить', edit_market_item_path(item), method: :get %>
-            <%= link_to 'Удалить', market_item_path(item), method: :delete %>
-          <% end %>
-          <% if @user %>
-            <%= button_to 'Добавить товар в корзину', { controller: :order, action: :create, id: item } %>
-            <%= button_to 'Удалить товар из корзины', { controller: :order, action: :destroy, id: item }, method: :delete %>
-          <% end %>        
-        </div>        
-      <% end %>
+      <div class='add-item'>
+        <% if @user && @user.role == 'Продавец' %>
+          <%= button_to 'Добавить товар', new_market_item_path, method: :get %>
+        <% end %>
+      </div>
       
+      <div class='items-pack'>
+        <% @items.each do |item| %>
+          <div class='items'>
+            
+            <h3 class='item-block name'>
+              <%= link_to item.name, market_item_path(item), method: :get %>
+            </h3>
+
+            <div class='item-block'>
+              <% if item.avatar.attached? %>
+                <%= image_tag item.avatar, height: '120px' %>
+                <hr>
+              <% end %>
+            </div>
+
+            <div class='item-block'>
+              <b class='item label'>
+                Цена:
+              </b>
+              <i class='item description'>
+                <%= item.price.round(2) %> руб.
+              </i>
+            </div>
+
+            <div class='item-block'>
+              <div class='item label'>
+                Описание товара: <wbr>
+              </div>
+              <div class='item description'>
+                <%= item.description %>
+              </div>
+            </div>
+
+            <div class='item-block'>
+              <% if @user && item.user_id == @user.id %>
+                <div class='item change'>
+                  <%= link_to 'Изменить товар', edit_market_item_path(item), method: :get %>
+                </div>
+                <div class='item delete'>
+                  <%= link_to 'Удалить c магазина', market_item_path(item), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+
+            <div class='item-block'>
+              <% if @user %>
+                <div class='item-buttons'>
+                  <div class='item add-to-cart'>
+                    <%= button_to '', { controller: :order, action: :create, id: item } %>
+                  </div>
+                  <div class='item delete-from-cart'>
+                    <%= button_to '', { controller: :order, action: :destroy, id: item }, method: :delete %>
+                  </div>
+                </div>
+              <% end %>        
+            </div>
+
+          </div>
+        <% end %>
+      </div>
+    </div>
 
   </body>
 </html>

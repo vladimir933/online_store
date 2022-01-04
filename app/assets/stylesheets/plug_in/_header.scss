@@ -1,0 +1,57 @@
+header {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  background-color: rgb(200, 251, 79);
+  border-radius: 10px;
+  box-shadow: inset 0 0 20px 5px rgba(69, 255, 36, 0.863);
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+
+    .header-item {
+      padding: 10px 20px;
+      transition-property: background-color;
+      transition-duration: 1s;
+      border-radius: 5px;
+      
+      a {
+        text-decoration: none;
+        position: relative;
+        font: italic bold 22px Verdana, sans-serif;
+        color: hsla(0, 0, 0, 0.7);
+        text-shadow: 2px 0 2px rgb(255, 255, 255), 
+                     0 2px 2px rgb(255, 255, 255), 
+                     -2px 0 2px rgb(255, 255, 255), 
+                     0 -2px 2px rgb(255, 255, 255);
+      }
+
+      a:after {
+        content: "";
+          display: block;
+          position: absolute;
+          right: 0;
+          bottom: -3px;
+          width: 0;
+          height: 2px; /* Высота линии */
+          background-color: black; /* Цвет подчеркивания при исчезании линии*/
+          transition: width 0.5s; /* Время эффекта */
+      }
+      
+      a:hover:after {
+        content: "";
+          width: 100%;
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: -3px;
+          height: 2px; /* Высота линии */
+          background-color: red; /* Цвет подчеркивания при появлении линии*/
+          transition: width 0.5s;  /* Время эффекта */
+      }
+    }
+  }
+
+}

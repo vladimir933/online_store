@@ -1,0 +1,59 @@
+.session-sign-in {
+  margin: 0 auto;
+  width: 500px;
+  min-height: 300px;
+  padding: 15px;
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+
+  .session {
+    padding: 15px 15px;
+    text-align: center;
+  }
+  
+  .session.heading {
+    font: bold 28px Arial, sans-serif;
+    color: black;
+    text-shadow: 3px 3px 3px hsla(0, 0, 0, 0.4);
+  } 
+
+  .session.danger {
+    font: italic bold 16px Arial, sans-serif;
+    color: red;
+    text-shadow: 2px 2px 2px rgba(255, 0, 0, 0.2);
+    margin-right: 40px;
+  }
+
+  .session.field input {
+    width: 280px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0 0 15px 4px rgba(0,0,0,0.4);
+  }
+
+  .session.btn {
+    margin-left: 80px;
+  }
+
+  .session.btn input {
+    font: italic bold 16px Arial, sans-serif;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(131, 131, 235);
+    color: white;
+    border: 2px solid black
+  }
+  
+  .session.btn input:hover {
+    background: #1d49aa;
+  }
+
+  .session.btn input:focus {
+    outline: none;
+    box-shadow: 0 0 3px 3px rgb(131, 131, 235);
+  }
+}

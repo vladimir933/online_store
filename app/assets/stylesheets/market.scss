@@ -1,3 +1,148 @@
 // Place all the styles related to the market controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.market {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+
+  .add-item {
+    margin-left: 15px;
+    margin-bottom: 15px;
+
+    input {
+      background-color: honeydew;
+      border-radius: 5px;
+    }
+
+    input:hover {
+      background-color: goldenrod;
+    }
+  
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 3px 3px rgb(255, 145, 0);
+    }
+  }
+
+  .items-pack {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+
+    .items {
+      padding: 20px;
+      width: 470px;
+      height: 460px;
+      background-color: rgb(255, 239, 212);
+      border-radius: 10px;
+      margin: 5px;
+      box-shadow: inset 0 0 20px 5px rgba(255, 204, 36, 0.5);
+      
+      .item-block {
+        padding: 3px;
+
+        .item.label {
+          font: bold 15px Arial, sans-serif;
+        }
+        
+        img {
+          box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.863);
+        }
+
+        .item.description {
+          word-wrap: break-word;
+          min-width: 50ch;
+          max-height: 50px;
+          overflow: hidden;
+          font: italic normal 14px Arial, sans-serif;
+        }
+
+        .item-buttons {
+          display: flex;
+          flex-wrap: wrap;
+
+          .item.add-to-cart {
+            padding-top: 10px;
+
+            input {
+              width: 45px;
+              height: 45px;
+              background-image:url('market/cart.png');
+              border: 0px;
+              border-radius: 20px;
+              background-size: 100%;
+              margin-right: 30px;
+              box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
+              transition: box-shadow 0.5s ease-in-out;
+            }
+
+            input:hover {
+              box-shadow: 0 0 20px 10px rgba(0,0,0,0.3);
+            }
+
+            input::after {
+              box-shadow: 0 0 5px 15px rgba(0,0,0,0.3);
+              opacity: 0;
+              transition: opacity 0.5s ease-in-out;
+            }
+
+            input:hover::after {
+              opacity: 1;
+            }
+          }
+          
+          .item.delete-from-cart {
+            padding-top: 10px;
+
+            input {  
+              width: 45px;
+              height: 45px;
+              background-image:url('market/trash.png');
+              border: 0px;
+              border-radius: 20px;
+              background-size: 100%;
+              box-shadow: 0 0 10px 3px rgba(0,0,0,0.3);
+              transition: box-shadow 0.5s ease-in-out;
+            }
+
+            input:hover {
+              box-shadow: 0 0 20px 10px rgba(0,0,0,0.3);
+            }
+  
+            input::after {
+              box-shadow: 0 0 5px 15px rgba(0,0,0,0.3);
+              opacity: 0;
+              transition: opacity 0.5s ease-in-out;
+            }
+  
+            input:hover::after {
+              opacity: 1;
+            }
+          }
+
+        }
+      }
+
+      .item-block.name {
+        max-width: 25ch;
+        overflow: hidden;
+
+        a {
+          text-decoration: none;
+          font: bold 28px Arial, sans-serif;
+          color: rgba(#000000, 0.8);
+          -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+        }
+
+        a:hover {
+          color: #ffa000; /* Меняем цвет текста */
+          -webkit-text-shadow: 2px 2px 2px #000;
+          -moz-text-shadow: 2px 2px 2px #000;
+          text-shadow: 2px 2px 2px #000;
+        }
+      }
+    }
+  }
+}

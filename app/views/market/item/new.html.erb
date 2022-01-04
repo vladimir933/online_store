@@ -1,66 +1,79 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <%= render partial: 'plug_in/navigation' %>
-    <div class='form-check'>
+
+    <div class='new-edit-item-form'>
       <%= form_for @item, url: market_item_index_path do |f| %>
+        
+        <div class='new-edit-item heading'>
+          Добавление товара
+        </div>
 
-        <% if @item.errors.any? %>
-          <% @item.errors.each do |error| %>
-            <div class='alert alert-danger mb-1'>
-              <%= error.message %><br>
-            </div>
-          <% end %>
-        <% end %>
-
-        <div class='mb-1'>
+        <div class='new-edit-item-section'>
           <%= f.label :'Название товара' %>
-        </div>
-        <div class='mb-2'>
-          <%= f.text_field :name %>
+          <div class='new-edit-item danger'>
+            <%= @item.errors.messages[:name][0] if @item.errors.any? %>
+          </div>
+          <div class='new-edit-item field'>
+            <%= f.text_field :name %>
+          </div>
         </div>
 
-        <div class='mb-1'>
+        <div class='new-edit-item-section'>
           <%= f.label :'Категория товара:' %>
-        </div>
-        <div class='mb-2'>
-          <%= f.select :kind, ['', 'Для дома', 'Для сада', 'Для животных'] %>
+          <div class='new-edit-item danger'>
+            <%= @item.errors.messages[:kind][0] if @item.errors.any? %>
+          </div>
+          <div class='new-edit-item field'>
+            <%= f.select :kind, ['', 'Для дома', 'Для сада', 'Для животных'] %>
+          </div>
         </div>
         
-        <div class='mb-1'>
+        <div class='new-edit-item-section'>
           <%= f.label :'Описание товара' %>
-        </div>
-        <div class='mb-2'>
-          <%= f.text_area  :description %>
+          <div class='new-edit-item danger'>
+            <%= @item.errors.messages[:description][0] if @item.errors.any? %>
+          </div>
+          <div class='new-edit-item field'> 
+            <%= f.text_area :description %>
+          </div>
         </div>
         
-        <div class='mb-1'>
+        <div class='new-edit-item-section'>
           <%= f.label :'Цена' %>
-        </div>
-        <div class='mb-2'>
-          <%= f.text_field :price, placeholder: '0.0' %>
+          <div class='new-edit-item danger'>
+            <%= @item.errors.messages[:price][0] if @item.errors.any? %>
+          </div>
+          <div class='new-edit-item field'> 
+            <%= f.text_field :price, placeholder: '0.0' %>
+          </div>
         </div>
         
-        <div class='mb-1'>
+        <div class='new-edit-item-section'>
           <%= f.label :'Время доставки (в днях)' %>
-        </div>
-        <div class='mb-2'>  
-          <%= f.text_field :delivery_time %>
+          <div class='new-edit-item danger'>
+            <%= @item.errors.messages[:delivery_time][0] if @item.errors.any? %>
+          </div>
+          <div class='new-edit-item field'>  
+            <%= f.text_field :delivery_time %>
+          </div>
         </div>
 
-        <div class='mb-1'>
-          <%= f.label :'Фото товара' %>
-        </div>
-        <div class='mb-3'>
-          <%= f.file_field :avatar %>
+        <div class='new-edit-item-section'>
+            <%= f.label :'Фото товара' %>
+          <div class='new-edit-item avatar'>
+            <%= f.file_field :avatar %>
+          </div>
         </div>
 
         <%= f.hidden_field :user_id, { :value => @user.id } %>
-          
-        <%= f.submit 'Подтвердить', class: 'btn btn-primary' %>
-    
+        
+        <div class='new-edit-item btn'>
+          <%= f.submit 'Подтвердить' %>
+        </div>
+
       <% end %>
     </div>
-
+  
   </body>
 </html>

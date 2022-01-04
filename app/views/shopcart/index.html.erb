@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <%= render partial: 'plug_in/navigation' %>
-    Корзина товаров:
+    
+    <div class='shopcart'>
+
+      <div class='cart-heading'>
+        Корзина товаров:
+      </div>
+      
       <% @cart_orders.each do |order| %>
 
-        <h4><%= link_to order.item.name, market_item_path(order.item) %></h4>
+        <div class='items'>
+          
+          <div class='cart item-name'>
+            <%= link_to order.item.name, market_item_path(order.item) %>
+          </div>
 
-        <% if order.item.avatar.attached? %>
-          <%= image_tag order.item.avatar, width: '120px' %><br>
-        <% end %>
+          <div class='cart item-avatar'>
+            <% if order.item.avatar.attached? %>
+              <%= image_tag order.item.avatar, width: '120px' %>
+              <hr>
+            <% end %>
+          </div>
 
-        <b>
-          Количество товаров: 
-        </b>
-        <%= order.quantity %><br>
-        
-        <b>
-          Рейтинг товара: 
-        </b>
-        <%= total_item_rating(order.item) %><br>
+          <div class='cart item-quantity'>
+            Количество товаров: <i><%= order.quantity %></i>
+          </div>
 
-        <%= link_to 'Удалить товар из корзины', shopcart_path(order), method: :delete %>
+          <div class='cart item-rating'>
+            Рейтинг товара: <i><%= total_item_rating(order.item) %></i>
+          </div>
+
+          <div class='cart delete-item'>
+            <%= button_to '', shopcart_path(order), method: :delete %>
+          </div>
+
+        </div>
 
       <% end %>
+
+    </div>
+
   </body>
 </html>
