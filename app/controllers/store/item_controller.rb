@@ -1,4 +1,4 @@
-class Market::ItemController < Market::ApplicationController
+class Store::ItemController < Store::ApplicationController
   before_action :find_item, only: %i[show edit update destroy]
 
   def index
@@ -26,7 +26,7 @@ class Market::ItemController < Market::ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to market_item_path
+      redirect_to store_item_path(@item)
     else
       render :edit
     end

@@ -10,7 +10,7 @@
         </div>
 
         <div class='session-section'>
-          <%= f.label :'Имя' %>
+          <%= f.label :'Имя *' %>
           <div class='session danger'>
             <%= @user.errors.messages[:name][0] if @user.errors.any? %>
           </div>
@@ -20,7 +20,7 @@
         </div>
 
         <div class='session-section'>
-          <%= f.label :'Фамилия' %>
+          <%= f.label :'Фамилия *' %>
           <div class='session danger'>
             <%= @user.errors.messages[:surname][0] if @user.errors.any? %>
           </div>
@@ -30,7 +30,7 @@
         </div>
 
         <div class='session-section'>
-          <%= f.label :'E-mail' %>
+          <%= f.label :'E-mail *' %>
           <div class='session danger'>           
             <%= @user.errors.messages[:email][0] if @user.errors.any? %>
           </div>
@@ -40,7 +40,7 @@
         </div>
 
         <div class='session-section'>
-          <%= f.label :'Роль' %>
+          <%= f.label :'Роль *' %>
           <div class='session danger'>
             <%= @user.errors.messages[:role][0] if @user.errors.any? %>
           </div>
@@ -50,7 +50,7 @@
         </div>
         
         <div class='session-section'>
-          <%= f.label :'Дата рождения' %>
+          <%= f.label :'Дата рождения *' %>
           <div class='session danger'>
             <%= @user.errors.messages[:birthday][0] if @user.errors.any? %>
           </div>
@@ -60,7 +60,7 @@
         </div>
        
         <div class='session-section'>
-          <%= f.label :'Пароль' %>      
+          <%= f.label :'Пароль *' %>      
           <div class='session danger'>
             <%= @user.errors.messages[:password][0] if @user.errors.any? %>
           </div>

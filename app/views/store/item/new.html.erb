@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
   <body>
-  
+
     <div class='new-edit-item-form'>
-      <%= form_for @item, url: market_item_path do |f| %>
+      <%= form_for @item, url: 'new?' do |f| %>
         
         <div class='new-edit-item heading'>
           Добавление товара
         </div>
 
         <div class='new-edit-item-section'>
-          <%= f.label :'Название товара' %>
+          <%= f.label :'Название товара *' %>
           <div class='new-edit-item danger'>
             <%= @item.errors.messages[:name][0] if @item.errors.any? %>
           </div>
@@ -20,7 +20,7 @@
         </div>
 
         <div class='new-edit-item-section'>
-          <%= f.label :'Категория товара:' %>
+          <%= f.label :'Категория товара *' %>
           <div class='new-edit-item danger'>
             <%= @item.errors.messages[:kind][0] if @item.errors.any? %>
           </div>
@@ -30,7 +30,7 @@
         </div>
         
         <div class='new-edit-item-section'>
-          <%= f.label :'Описание товара' %>
+          <%= f.label :'Описание товара *' %>
           <div class='new-edit-item danger'>
             <%= @item.errors.messages[:description][0] if @item.errors.any? %>
           </div>
@@ -40,7 +40,7 @@
         </div>
         
         <div class='new-edit-item-section'>
-          <%= f.label :'Цена' %>
+          <%= f.label :'Цена *' %>
           <div class='new-edit-item danger'>
             <%= @item.errors.messages[:price][0] if @item.errors.any? %>
           </div>
@@ -50,7 +50,7 @@
         </div>
         
         <div class='new-edit-item-section'>
-          <%= f.label :'Время доставки (в днях)' %>
+          <%= f.label :'Время доставки (в днях) *' %>
           <div class='new-edit-item danger'>
             <%= @item.errors.messages[:delivery_time][0] if @item.errors.any? %>
           </div>
@@ -74,6 +74,6 @@
 
       <% end %>
     </div>
-
+  
   </body>
 </html>

@@ -2,11 +2,11 @@
 <html>
   <body>
 
-    <div class='market'>
+    <div class='store'>
 
       <div class='add-item'>
         <% if @user && @user.role == 'Продавец' %>
-          <%= button_to 'Добавить товар', new_market_item_path, method: :get %>
+          <%= button_to 'Добавить товар', store_item_new_path, method: :get %>
         <% end %>
       </div>
       
@@ -15,7 +15,7 @@
           <div class='items'>
             
             <h3 class='item-block name'>
-              <%= link_to item.name, market_item_path(item), method: :get %>
+              <%= link_to item.name, store_item_path(item), method: :get %>
             </h3>
 
             <div class='item-block'>
@@ -46,10 +46,10 @@
             <div class='item-block'>
               <% if @user && item.user_id == @user.id %>
                 <div class='item change'>
-                  <%= link_to 'Изменить товар', edit_market_item_path(item), method: :get %>
+                  <%= link_to 'Изменить товар', store_path(item), method: :get %>
                 </div>
                 <div class='item delete'>
-                  <%= link_to 'Удалить c магазина', market_item_path(item), method: :delete %>
+                  <%= link_to 'Удалить c магазина', store_item_path(item), method: :delete %>
                 </div>
               <% end %>
             </div>

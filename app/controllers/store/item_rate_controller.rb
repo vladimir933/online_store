@@ -1,9 +1,9 @@
-class Market::ItemRateController < Market::ApplicationController
+class Store::ItemRateController < Store::ApplicationController
 
   def create
     @rating = ItemRate.new(item_rating_params)
     if @rating.save
-      redirect_to market_item_path(params[:item_id])
+      redirect_to store_item_path(params[:item_id])
     else
       redirect_to root_path
     end 

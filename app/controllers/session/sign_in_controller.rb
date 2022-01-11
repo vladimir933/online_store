@@ -16,7 +16,7 @@ class Session::SignInController < Session::ApplicationController
     user = User.find_by_email(params[:email])
     if user.present? && helpers.authenticate?(user)
       session[:user_id] = user.id
-      redirect_to market_root_path
+      redirect_to store_root_path
     else
       flash[:alert] = 'Неверный логин или пароль!'
       render :new

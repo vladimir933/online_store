@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <body>
-
+  
     <div class='new-edit-item-form'>
-      <%= form_for @item, url: market_item_index_path do |f| %>
+      <%= form_for @item, url: 'edit' do |f| %>
         
         <div class='new-edit-item heading'>
           Добавление товара
@@ -74,6 +74,6 @@
 
       <% end %>
     </div>
-  
+
   </body>
 </html>

@@ -51,7 +51,7 @@
               Оценить товар:
               <b class='show-item-rate'>
                 <% ItemRate::RATING.reverse_each do |rating| %>
-                  <%= link_to "&#10031;".html_safe, market_item_item_rate_index_path(@item, item_rating: rating), method: :post, class: ".show-item rate s#{rating}" %>
+                  <%= link_to "&#10031;".html_safe, store_item_item_rate_index_path(@item, item_rating: rating), method: :post, class: ".show-item rate s#{rating}" %>
                 <% end %>
               </b>
             </div>
