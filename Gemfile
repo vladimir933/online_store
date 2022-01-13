@@ -56,3 +56,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "awesome_print", "~> 1.9"
+
+gem "cancancan", "~> 3.3"

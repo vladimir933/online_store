@@ -1,9 +1,6 @@
 class Session::SignUpController < Session::ApplicationController
   include SignUpHelper
 
-  def index
-  end
-
   def new
     @user = User.new
   end

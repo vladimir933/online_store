@@ -1,13 +1,5 @@
 class Session::SignInController < Session::ApplicationController
 
-  def index
-
-  end
-
-  def edit
-
-  end
-
   def new
     @user = User.new
   end
@@ -21,10 +13,6 @@ class Session::SignInController < Session::ApplicationController
       flash[:alert] = 'Неверный логин или пароль!'
       render :new
     end
-  end
-
-  def update
-
   end
 
   def destroy
