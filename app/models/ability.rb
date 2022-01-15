@@ -14,38 +14,37 @@ class Ability
     when 'Продавец'
       seller_ability
     when 'Покупатель'
-      buyer_ability
+      customer_ability
     end
-    
   end
 
   def public_ability
     can :create, :sign_up
     can :create, :sign_in
-    can :read, :store
+    can :read, :item
     can :read, :order
   end
 
   def seller_ability
+    whole_abilities
     can :destroy, :sign_in
     can %i[read create update destroy], :item
-    can [:read, :create], :order
-    can :read, :shopcart
+    can %i[read create destroy], :order
   end
 
-  def buyer_ability
-    can :destroy, :sign_in
-    can :read, :order
+  def customer_ability
+    whole_abilities
     can :read, :item
-    can [:read, :create, :destroy], :order
     can :create, :item_rate
-    can :read, :shopcart
   end
 
   private
 
-  def whole_ability
-
+  def general_abilities
+    can :destroy, :sign_in
+    can %i[read create destroy], :order
+    can :create, :item_rate
+    can %i[read destroy], :shopcart
   end
 
 end

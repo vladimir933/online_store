@@ -5,7 +5,7 @@
     <div class='store'>
 
       <div class='add-item'>
-        <% if @user && @user.role == 'Продавец' %>
+        <% if can? :create, :item %>
           <%= button_to 'Добавить товар', store_item_new_path, method: :get %>
         <% end %>
       </div>
@@ -26,6 +26,15 @@
             </div>
 
             <div class='item-block'>
+              <div class='item label'>
+                Описание товара:
+              </div>
+              <div class='item description'>
+                <%= item.description %>
+              </div>
+            </div>
+
+            <div class='item-block'>
               <b class='item label'>
                 Цена:
               </b>
@@ -35,16 +44,7 @@
             </div>
 
             <div class='item-block'>
-              <div class='item label'>
-                Описание товара: <wbr>
-              </div>
-              <div class='item description'>
-                <%= item.description %>
-              </div>
-            </div>
-
-            <div class='item-block'>
-              <% if @user && item.user_id == @user.id %>
+              <% if can? :update && :destroy, :item %>
                 <div class='item change'>
                   <%= link_to 'Изменить товар', store_path(item), method: :get %>
                 </div>
@@ -55,7 +55,7 @@
             </div>
 
             <div class='item-block'>
-              <% if @user %>
+              <% if can?(:create && :destroy, :order) && @user.id != item.user_id %>
                 <div class='item-buttons'>
                   <div class='item add-to-cart'>
                     <%= button_to '', { controller: :order, action: :create, id: item } %>
@@ -69,6 +69,7 @@
 
           </div>
         <% end %>
+      
       </div>
     </div>
 

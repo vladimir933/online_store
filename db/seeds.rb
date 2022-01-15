@@ -6,6 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user_seller = User.create(name: 'SellerName', 
+                          surname: 'SellerSurname', 
+                          role: 'Продавец', 
+                          birthday: '01.01.2000'.to_date, 
+                          email: 'seller@test.com', 
+                          password: '12345', 
+                          password_confirmation: '12345'
+                         )
+
+user_buyer = User.create(name: 'BuyerName', 
+                         surname: 'BuyerSurname', 
+                         role: 'Покупатель', 
+                         birthday: '01.01.2000'.to_date, 
+                         email: 'buyer@test.com', 
+                         password: '12345', 
+                         password_confirmation: '12345'
+                        )
+
+Cart.create(user_id: 1)
+Cart.create(user_id: 2)
 
 50.times do
   item = {
@@ -17,7 +37,7 @@
     :delivery_time => rand(50)
   }
   
-  img = ['diman.png', 'klushkich.jpg', 'kostyan.png', '123.png', 'maksech.png', 'vadya.png', 'vit\'ka.png']
+  img = ['diman.png', 'klushkich.jpg', 'kostyan.png', '123.png', 'maksech.png', 'vadya.png', 'vit\'ka.png'][rand(0..6)]
   
   items = Item.create(item)
   items.avatar.attach(io: File.open(Rails.root.join("/home/vladimir/Изображения/#{img}")), filename: img)

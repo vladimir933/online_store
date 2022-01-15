@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <header>
-    
+  
     <div class='header-nav'>
       <div class='header-item logo'>  
         <%= image_tag 'logo.png', width: '90px', alt: 'logo' %>
@@ -11,19 +11,24 @@
         <%= link_to 'Магазин', store_root_path %>
       </div>
     
-    <% if session[:user_id].present? %>
+      <% if session[:user_id].present? %>
 
       <div class='header-item button'>
         <%= link_to 'Корзина', shopcart_index_path %>
       </div>
+
+      <% end %>
     </div>
 
     <div class='header-nav'>
+      
+      <% if session[:user_id].present? %>
+
       <div class='header-item button'>
         <%= link_to 'Выйти из аккаунта', session_logout_path(@user), method: :delete %>
       </div>
 
-    <% else %>
+      <% else %>
 
       <div class='header-item button'>
         <%= link_to 'Войти', session_sign_in_path %>
@@ -33,7 +38,7 @@
         <%= link_to 'Зарегистрироваться', session_sign_up_path %>
       </div>
 
-    <% end %>
+      <% end %>
 
     </div>
 

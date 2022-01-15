@@ -8,14 +8,14 @@
         <%= @item.name %>
       </h1>
 
-      <div class='show-item-section'>
-        <% if @item.avatar.attached? %>
-          <div class='show-item avatar'>
-            <%= image_tag @item.avatar, width: '250px' %>
-            <hr>
-          </div>
-        <% end %>
-      </div>
+      <% if @item.avatar.attached? %>
+        <div class='show-item-section'>
+            <div class='show-item avatar'>
+              <%= image_tag @item.avatar, width: '250px' %>
+              <hr>
+            </div>
+        </div>
+      <% end %>
       
       <div class='show-item-section'>
         <div class='show-item'>
@@ -43,10 +43,10 @@
           Время доставки: <i><%= @item.delivery_time %> дней</i>
         </div>
       </div>
-
+    
       <% if @user %>
         <div class='show-item-section'>
-          <% unless item_rates? %>
+          <% unless item_rates? && @user.id == @item.user_id %>
             <div class='show-item'>
               Оценить товар:
               <b class='show-item-rate'>
@@ -57,7 +57,7 @@
             </div>
           <% else %>
             <div class='show-item'>
-              Вы поcтавили товару оценку: <i><%= item_rates %></i>
+              Оценка товара: <i><%= item_rates %></i>
             </div> 
           <% end %>
         </div>
