@@ -14,6 +14,9 @@ module OnlineStore
     initializer(:remove_action_mailbox_and_activestorage_routes, after: :add_routing_paths) { |app|
       app.routes_reloader.paths.delete_if {|path| path =~ /actionmailbox/ }
     }
+
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+    config.i18n.default_locale = :en
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

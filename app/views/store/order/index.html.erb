@@ -6,7 +6,7 @@
 
       <div class='add-item'>
         <% if can? :create, :item %>
-          <%= button_to 'Добавить товар', store_item_new_path, method: :get %>
+          <%= button_to t('store.add_item'), store_item_new_path, method: :get %>
         <% end %>
       </div>
       
@@ -27,7 +27,7 @@
 
             <div class='item-block'>
               <div class='item label'>
-                Описание товара:
+                <%= t('store.item_desc') %>:
               </div>
               <div class='item description'>
                 <%= item.description %>
@@ -36,20 +36,20 @@
 
             <div class='item-block'>
               <b class='item label'>
-                Цена:
+                <%= t('store.price') %>:
               </b>
               <i class='item description'>
-                <%= item.price.round(2) %> руб.
+                <%= item.price.round(2) %> <%= t('store.currency') %>.
               </i>
             </div>
 
             <div class='item-block'>
               <% if can? :update && :destroy, :item %>
                 <div class='item change'>
-                  <%= link_to 'Изменить товар', store_path(item), method: :get %>
+                  <%= link_to t('store.change_item'), store_path(item), method: :get %>
                 </div>
                 <div class='item delete'>
-                  <%= link_to 'Удалить c магазина', store_item_path(item), method: :delete %>
+                  <%= link_to t('store.delete_item'), store_item_path(item), method: :delete %>
                 </div>
               <% end %>
             </div>

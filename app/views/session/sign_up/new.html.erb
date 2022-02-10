@@ -6,11 +6,11 @@
       <%= form_for @user, url: session_sign_up_path do |f| %>
 
         <div class='session heading'>
-          Регистрация
+          <%= t('session.sign_up.registration') %>
         </div>
 
         <div class='session-section'>
-          <%= f.label :'Имя *' %>
+          <%= f.label t('session.sign_up.name') %>*
           <div class='session danger'>
             <%= @user.errors.messages[:name][0] if @user.errors.any? %>
           </div>
@@ -20,7 +20,7 @@
         </div>
 
         <div class='session-section'>
-          <%= f.label :'Фамилия *' %>
+          <%= f.label t('session.sign_up.last_name') %>*
           <div class='session danger'>
             <%= @user.errors.messages[:surname][0] if @user.errors.any? %>
           </div>
@@ -30,7 +30,7 @@
         </div>
 
         <div class='session-section'>
-          <%= f.label :'E-mail *' %>
+          <%= f.label t('session.sign_up.email') %>*
           <div class='session danger'>           
             <%= @user.errors.messages[:email][0] if @user.errors.any? %>
           </div>
@@ -40,17 +40,17 @@
         </div>
 
         <div class='session-section'>
-          <%= f.label :'Роль *' %>
+          <%= f.label t('session.sign_up.role') %>*
           <div class='session danger'>
             <%= @user.errors.messages[:role][0] if @user.errors.any? %>
           </div>
           <div class='session field'>
-            <%= f.select :role, ['', 'Продавец', 'Покупатель'] %>
+            <%= f.select :role, ['', t('session.roles.seller'), t('session.roles.customer')] %>
           </div>
         </div>
         
         <div class='session-section'>
-          <%= f.label :'Дата рождения *' %>
+          <%= f.label t('session.sign_up.birthday') %>*
           <div class='session danger'>
             <%= @user.errors.messages[:birthday][0] if @user.errors.any? %>
           </div>
@@ -60,7 +60,7 @@
         </div>
        
         <div class='session-section'>
-          <%= f.label :'Пароль *' %>      
+          <%= f.label t('session.sign_up.password') %>*      
           <div class='session danger'>
             <%= @user.errors.messages[:password][0] if @user.errors.any? %>
           </div>
@@ -70,7 +70,7 @@
         </div>
 
         <div class='session-section'>
-          <%= f.label :'Подтверждение пароля' %>
+          <%= f.label t('session.sign_up.password_confirmation') %>
           <div class='session danger'>
             <%= @user.errors.messages[:password_confirmation][0] if @user.errors.any? %>
           </div>
@@ -82,7 +82,7 @@
         <%= f.hidden_field :registration_time, { :value => Time.now.strftime("%H:%M:%S, %d.%m.%Y") } %>
 
         <div class='session btn'>
-          <%= f.submit 'Зарегистрироваться' %>
+          <%= f.submit t('session.sign_up.submit') %>
         </div>
 
       <% end %>

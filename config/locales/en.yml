@@ -1,33 +1,84 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  header:
+    store: 'Store'
+    cart: 'Shopcart'
+    log_in: 'Log In'
+    sign_up: 'Sign Up'
+    log_out: 'Log out'
+
+  footer:
+    law: 'All rights reserved' 
+
+  store:
+    add_item: 'Add item'
+    item_desc: 'Item description'
+    price: 'Price'
+    currency: 'rub'
+    change_item: 'Change item'
+    delete_item: 'Delete item'
+
+  shopcart:
+    chapter_name: 'Shopcart'
+    items_count: 'Items count'
+    item_rate: 'Item rating'
+
+  items:
+    show:
+      item_price: 'Item price'
+      item_desc: 'Description'
+      category: 'Item category'
+      delivery_time: 'Delivery time'
+      rate_item: 'Rate item'
+      item_rate: 'Item rating'
+      users_rate_count: 'The number of users rated the product'
+      days: 'days'
+
+    new:
+      chapter_name: 'Adding an item'
+      item_name: 'Item name'
+      category: 'Category'
+      item_desc: 'Description'
+      price: 'Price'
+      delivery_time: 'Delivery time (days)'
+      item_photo: 'Item photo'
+      add_item_to_store: 'Submit'
+
+    edit:
+      chapter_name: 'Item changing'
+      item_name: 'Item name'
+      category: 'Category'
+      item_desc: 'Description'
+      price: 'Price'
+      delivery_time: 'Delivery time (days)'
+      item_photo: 'Item photo'
+      change_item_in_store: 'Submit'
+
+    categories:
+      for_home: 'for home'
+      for_garden: 'for garden'
+      for_animals: 'for animals'
+
+  session:
+    sign_in:
+      chapter_name: 'Authorization'
+      placeholder_password: 'Password'
+      log_in: 'Log In'
+
+    sign_up:
+      registration: 'Registration'
+      name: 'Name'
+      last_name: 'Surname'
+      email: 'E-mail'
+      role: 'Role'
+      birthday: 'Birthday'
+      password: 'Password'
+      password_confirmation: 'Password confirmation'
+      submit: 'Sign Up'
+
+    roles:
+      seller: 'seller'
+      customer: 'customer'
+
+
+    
+

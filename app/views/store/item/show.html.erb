@@ -19,13 +19,13 @@
       
       <div class='show-item-section'>
         <div class='show-item'>
-          Цена товара: <i><%= @item.price.round(2) %> руб.</i>
+          <%= t('items.show.item_price') %>: <i><%= @item.price.round(2) %> руб.</i>
         </div>
       </div>
 
       <div class='show-item-section'>
         <div class='show-item'>
-          Описание товара:
+          <%= t('items.show.item_desc') %>:
         </div>
         <div class='show-item description'>
           <%= @item.description %>
@@ -34,13 +34,13 @@
 
       <div class='show-item-section'>
         <div class='show-item'>
-          Категория товара: <i><%= @item.kind %></i>
+          <%= t('items.show.category') %>: <i><%= @item.kind %></i>
         </div>
       </div>
 
       <div class='show-item-section'>
         <div class='show-item'>
-          Время доставки: <i><%= @item.delivery_time %> дней</i>
+          <%= t('items.show.delivery_time') %>: <i><%= @item.delivery_time %> <%= t('items.show.days') %></i>
         </div>
       </div>
     
@@ -48,7 +48,7 @@
         <div class='show-item-section'>
           <% unless item_rates? && @user.id == @item.user_id %>
             <div class='show-item'>
-              Оценить товар:
+              <%= t('items.show.rate_item') %>:
               <b class='show-item-rate'>
                 <% ItemRate::RATING.reverse_each do |rating| %>
                   <%= link_to "&#10031;".html_safe, store_item_item_rate_index_path(@item, item_rating: rating), method: :post, class: ".show-item rate s#{rating}" %>
@@ -57,14 +57,14 @@
             </div>
           <% else %>
             <div class='show-item'>
-              Оценка товара: <i><%= item_rates %></i>
+              <%= t('items.show.item_rate') %>: <i><%= item_rates %></i>
             </div> 
           <% end %>
         </div>
       
         <div class='show-item-section'>  
           <div class='show-item'>
-            Количество пользователей оценило товар: <i><%= votes_count %></i>
+            <%= t('items.show.users_rate_count') %>: <i><%= votes_count %></i>
           </div>
         </div>
 

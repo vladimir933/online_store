@@ -8,13 +8,13 @@
       </div>
 
       <div class='header-item button'>
-        <%= link_to 'Магазин', store_root_path %>
+        <%= link_to t('header.store'), store_root_path %>
       </div>
     
       <% if session[:user_id].present? %>
 
       <div class='header-item button'>
-        <%= link_to 'Корзина', shopcart_index_path %>
+        <%= link_to t('header.cart'), shopcart_index_path %>
       </div>
 
       <% end %>
@@ -25,17 +25,17 @@
       <% if session[:user_id].present? %>
 
       <div class='header-item button'>
-        <%= link_to 'Выйти из аккаунта', session_logout_path(@user), method: :delete %>
+        <%= link_to t('header.log_out'), session_logout_path(@user), method: :delete %>
       </div>
 
       <% else %>
 
       <div class='header-item button'>
-        <%= link_to 'Войти', session_sign_in_path %>
+        <%= link_to t('header.log_in'), session_sign_in_path %>
       </div>
 
       <div class='header-item button'>
-        <%= link_to 'Зарегистрироваться', session_sign_up_path %>
+        <%= link_to t('header.sign_up'), session_sign_up_path %>
       </div>
 
       <% end %>

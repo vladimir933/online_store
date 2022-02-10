@@ -6,7 +6,7 @@
       <%= form_with url: session_sign_in_path do |f| %>
         
         <div class='session heading'>
-          Авторизация
+          <%= t('session.sign_in.authentication') %>
         </div>
         
         <% if flash.present? %>
@@ -16,17 +16,17 @@
         <% end %>
 
         <div class='session field'>
-          <%= f.email_field :email, placeholder: 'E-mail'%>
+          <%= f.email_field :email, placeholder: 'E-mail' %>
         </div>
           
         <div class='session field'>
-          <%= f.password_field :password, placeholder: 'Пароль'%>
+          <%= f.password_field :password, placeholder: t('session.sign_in.placeholder_password') %>
         </div>
 
         <div class='session btn'>
-          <%= f.submit 'Войти' %>
+          <%= f.submit t('session.sign_in.log_in') %>
         </div>
-      <% end %>
+    <% end %>
     </div>
   
   </body>

@@ -5,7 +5,7 @@
     <div class='shopcart'>
 
       <div class='cart-heading'>
-        Корзина товаров:
+        <%= t('shopcart.chapter_name') %>
       </div>
       
       <% @cart_orders.each do |order| %>
@@ -24,11 +24,11 @@
           </div>
 
           <div class='cart item-quantity'>
-            Количество товаров: <i><%= order.quantity %></i>
+            <%= t('shopcart.items_count') %>: <i><%= order.quantity %></i>
           </div>
 
           <div class='cart item-rating'>
-            Рейтинг товара: <i><%= total_item_rating(order.item) %></i>
+            <%= t('shopcart.item_rate') %>: <i><%= total_item_rating(order.item) %></i>
           </div>
 
           <div class='cart delete-item'>

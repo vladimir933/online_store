@@ -6,11 +6,11 @@
       <%= form_for @item, url: 'edit' do |f| %>
         
         <div class='new-edit-item heading'>
-          Добавление товара
+          <%= t('items.edit.chapter_name') %>
         </div>
 
         <div class='new-edit-item-section'>
-          <%= f.label :'Название товара' %>
+          <%= f.label t('items.edit.item_name') %>*
           <div class='new-edit-item danger'>
             <%= @item.errors.messages[:name][0] if @item.errors.any? %>
           </div>
@@ -20,7 +20,7 @@
         </div>
 
         <div class='new-edit-item-section'>
-          <%= f.label :'Категория товара:' %>
+          <%= f.label t('items.edit.category') %>*
           <div class='new-edit-item danger'>
             <%= @item.errors.messages[:kind][0] if @item.errors.any? %>
           </div>
@@ -30,7 +30,7 @@
         </div>
         
         <div class='new-edit-item-section'>
-          <%= f.label :'Описание товара' %>
+          <%= f.label t('items.edit.item_desc') %>*
           <div class='new-edit-item danger'>
             <%= @item.errors.messages[:description][0] if @item.errors.any? %>
           </div>
@@ -40,7 +40,7 @@
         </div>
         
         <div class='new-edit-item-section'>
-          <%= f.label :'Цена' %>
+          <%= f.label t('items.edit.price') %>*
           <div class='new-edit-item danger'>
             <%= @item.errors.messages[:price][0] if @item.errors.any? %>
           </div>
@@ -50,7 +50,7 @@
         </div>
         
         <div class='new-edit-item-section'>
-          <%= f.label :'Время доставки (в днях)' %>
+          <%= f.label t('items.edit.delivery_time') %>*
           <div class='new-edit-item danger'>
             <%= @item.errors.messages[:delivery_time][0] if @item.errors.any? %>
           </div>
@@ -60,7 +60,7 @@
         </div>
 
         <div class='new-edit-item-section'>
-            <%= f.label :'Фото товара' %>
+            <%= f.label t('items.edit.item_photo') %>
           <div class='new-edit-item avatar'>
             <%= f.file_field :avatar %>
           </div>
@@ -69,7 +69,7 @@
         <%= f.hidden_field :user_id, { :value => @user.id } %>
         
         <div class='new-edit-item btn'>
-          <%= f.submit 'Подтвердить' %>
+          <%= f.submit t('items.edit.change_item_in_store') %>
         </div>
 
       <% end %>
