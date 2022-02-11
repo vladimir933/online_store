@@ -1,2 +1,119 @@
 ru:
-  ru: 'Hello, World!'
+  application:
+    name: 'Онлайн магазин'
+
+  header:
+    store: 'Магазин'
+    cart: 'Корзина'
+    log_in: 'Войти'
+    sign_up: 'Зарегистрироваться'
+    log_out: 'Выйти'
+
+  footer:
+    law: 'Все права защищены'
+    change_language: 'Изменить язык'
+
+  store:
+    add_item: 'Добавить товар'
+    item_desc: 'Описание товара'
+    price: 'Цена'
+    currency: 'руб'
+    change_item: 'Изменить товар'
+    delete_item: 'Удалить товар'
+
+  shopcart:
+    chapter_name: 'Корзина'
+    items_count: 'Количество товаров'
+    item_rate: 'Рейтинг товара'
+
+  items:
+    show:
+      item_price: 'Цена товара'
+      item_desc: 'Описание'
+      category: 'Категория'
+      delivery_time: 'Время доставки'
+      rate_item: 'Оценить товар'
+      item_rate: 'Рейтинг товара'
+      users_rate_count: 'Количество пользователей оценивших товар'
+      days: 'дней'
+
+    new:
+      chapter_name: 'Добавление товара'
+      item_name: 'Название товара'
+      category: 'Категория'
+      item_desc: 'Описание'
+      price: 'Цена'
+      delivery_time: 'Время доставки (дней)'
+      item_photo: 'Фото товара'
+      add_item_to_store: 'Добавить товар'
+
+    edit:
+      chapter_name: 'Изменение товара'
+      item_name: 'Имя товара'
+      category: 'Категория'
+      item_desc: 'Описание'
+      price: 'Цена'
+      delivery_time: 'Время доставки (дней)'
+      item_photo: 'Фото товара'
+      change_item_in_store: 'Подтвердить'
+
+    categories:
+      for_home: 'для дома'
+      for_garden: 'для сада'
+      for_animals: 'для животных'
+
+  session:
+    sign_in:
+      chapter_name: 'Авторизация'
+      placeholder_password: 'Пароль'
+      log_in: 'Войти'
+      invalid_sign_in: 'Неверный логин или пароль!'
+
+    sign_up:
+      registration: 'Регистрация'
+      name: 'Имя'
+      last_name: 'Фамилия'
+      email: 'E-mail'
+      role: 'Роль'
+      birthday: 'День рождения'
+      password: 'Пароль'
+      password_confirmation: 'Подтверждение пароля'
+      submit: 'Зарегистрироваться'
+
+    roles:
+      seller: 'продавец'
+      customer: 'покупатель'
+
+  activerecord:
+    errors:
+      models:
+        item:
+          attributes:
+            name:
+              name: 'Недопустимое количество символов в названии товара'
+            kind:
+              kind: 'Не указана категория товара'
+            delivery_time:
+              delivery_time: 'Неверное время доставки товара'
+            description:
+              description: 'Недопустимое описание товара, количество символов 5..200'
+            price:
+              price: 'Недопустимая цена товара'
+
+        user:
+          attributes:
+            name:
+              name: 'Недопустимое имя'
+            surname:
+              surname: 'Недопустимая фамилия'
+            role:
+              role: 'Отметьте свою роль'
+            birthday:
+              birthday: 'Введите дату рождения'
+            email: 
+              format: 'Неверный формат почты' 
+              uniq: 'Почта уже зарегистрирована в системе'
+            password: 
+              symbols: 'Количество символов пароля не меньше 5' 
+            password_confirmation:
+              confirmation: 'Пароли не совпадают'

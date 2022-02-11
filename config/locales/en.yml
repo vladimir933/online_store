@@ -1,13 +1,17 @@
 en:
+  application:
+    name: 'Online store'
+
   header:
     store: 'Store'
     cart: 'Shopcart'
-    log_in: 'Log In'
+    log_in: 'Sign In'
     sign_up: 'Sign Up'
     log_out: 'Log out'
 
   footer:
-    law: 'All rights reserved' 
+    law: 'All rights reserved'
+    change_language: 'Change language to'
 
   store:
     add_item: 'Add item'
@@ -63,6 +67,7 @@ en:
       chapter_name: 'Authorization'
       placeholder_password: 'Password'
       log_in: 'Log In'
+      invalid_sign_in: 'Wrong login or password!'
 
     sign_up:
       registration: 'Registration'
@@ -79,6 +84,36 @@ en:
       seller: 'seller'
       customer: 'customer'
 
+  activerecord:
+    errors:
+      models:
+        item:
+          attributes:
+            name:
+              name: 'Invalid number of characters in the item name'
+            kind:
+              kind: 'Item category not specified'
+            delivery_time:
+              delivery_time: 'Wrong delivery time'
+            description:
+              description: 'Invalid item description, number of characters 5..200'
+            price:
+              price: 'Invalid item price'
 
-    
-
+        user:
+          attributes:
+            name:
+              name: 'Invalid name'
+            surname:
+              surname: 'Invalid last name'
+            role:
+              role: 'Select your role'
+            birthday:
+              birthday: 'Enter date of birth'
+            email: 
+              format: 'Invalid mail format' 
+              uniq: 'Mail is already registered in the system'
+            password:
+              symbols: 'The number of password characters is at least 5' 
+            password_confirmation:
+              confirmation: 'Password mismatch'

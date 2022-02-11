@@ -10,7 +10,7 @@ class Session::SignInController < Session::ApplicationController
       session[:user_id] = user.id
       redirect_to store_root_path
     else
-      flash[:alert] = 'Неверный логин или пароль!'
+      flash[:alert] = t('session.sign_in.invalid_sign_in')
       render :new
     end
   end

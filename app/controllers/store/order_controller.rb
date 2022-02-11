@@ -7,7 +7,7 @@ class Store::OrderController < Store::ApplicationController
     @items = Item.all
   end
   
-  # добавить товар в корзину пользователя
+  # add item to cart
   def create
     unless @order.present?
       make_order
@@ -16,7 +16,7 @@ class Store::OrderController < Store::ApplicationController
     end
   end
 
-  # удалить товар с корзины пользователя
+  # delete item from the cart
   def destroy
     if @order
       @order.destroy
