@@ -6,7 +6,7 @@
 
       <div class='add-item'>
         <% if can? :create, :item %>
-          <%= button_to t('store.add_item'), store_item_new_path, method: :get %>
+          <%= button_to t('store.add_item'), store_items_new_path, method: :get %>
         <% end %>
       </div>
       

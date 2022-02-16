@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   scope '/:locale' do
     namespace :store do
       resources :order, only: %i[index create destroy]
-      get 'item/new', to: 'item#new'
-      post 'item/new', to: 'item#create'
-      get 'item/:id/edit', to: 'item#edit'
-      patch 'item/:id/edit', to: 'item#update'
+      get 'items/new', to: 'items#new'
+      post 'items/new', to: 'items#create'
+      get 'items/:id/edit', to: 'items#edit'
+      patch 'items/:id/edit', to: 'items#update'
 
-      resources :item, except: %i[new create edit update] do
+      resources :items, except: %i[new create edit update] do
         resources :item_rate, only: %i[create destroy]
       end
 
@@ -26,6 +26,12 @@ Rails.application.routes.draw do
 
       get 'sign_up', to: 'sign_up#new'
       post 'sign_up', to: 'sign_up#create'
+    end
+  end
+
+  namespace :api do 
+    namespace :v1 do
+      resources :items, only: %i[index show create update destroy]
     end
   end
 

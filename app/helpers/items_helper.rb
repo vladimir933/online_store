@@ -1,4 +1,4 @@
-module ItemHelper
+module ItemsHelper
 
   def show_item_rating(item = @item)
     if item.rating?
