@@ -127,6 +127,7 @@
       .item-block.name {
         max-width: 25ch;
         overflow: hidden;
+        text-overflow: ellipsis;
 
         a {
           text-decoration: none;

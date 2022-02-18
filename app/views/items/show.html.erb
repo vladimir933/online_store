@@ -46,7 +46,7 @@
     
       <% if @user %>
         <div class='show-item-section'>
-          <% unless item_rates? && @user.id == @item.user_id %>
+          <% unless item_rates? && @item.user_id == @user.id %>
             <div class='show-item'>
               <%= t('items.show.rate_item') %>:
               <b class='show-item-rate'>

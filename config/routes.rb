@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: redirect("/#{I18n.default_locale}/store")
   
   scope '/:locale' do
-    namespace :store do
-      resources :order, only: %i[index create destroy]
+    scope 'store', as: 'store' do 
+      resources :order, only: %i[create destroy]
       get 'items/new', to: 'items#new'
       post 'items/new', to: 'items#create'
       get 'items/:id/edit', to: 'items#edit'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
         resources :item_rate, only: %i[create destroy]
       end
 
-      root to: 'order#index'
+      root to: 'items#index'
     end
 
     resources :shopcart

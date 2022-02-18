@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <body>
-
-    <div class='store'>
+<div class='store'>
 
       <div class='add-item'>
         <% if can? :create, :item %>
-          <%= button_to t('store.add_item'), store_items_new_path, method: :get %>
+          <%= button_to t('store.add_item'), store_items_new_url, method: :get %>
         <% end %>
       </div>
       
@@ -44,7 +40,7 @@
             </div>
 
             <div class='item-block'>
-              <% if can? :update && :destroy, :item %>
+              <% if can?(:update && :destroy, :item) %>
                 <div class='item change'>
                   <%= link_to t('store.change_item'), store_path(item), method: :get %>
                 </div>
@@ -72,6 +68,3 @@
       
       </div>
     </div>
-
-  </body>
-</html>

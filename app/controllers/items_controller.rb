@@ -1,4 +1,4 @@
-class Store::ItemsController < Store::ApplicationController
+class ItemsController < ApplicationController
   before_action :find_item, only: %i[show edit update destroy]
   skip_before_action :verify_authenticity_token, only: [:create, :edit, :update]
 

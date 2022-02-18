@@ -22,14 +22,13 @@ class Ability
     can :create, :sign_up
     can :create, :sign_in
     can :read, :item
-    can :read, :order
   end
 
   def seller_ability
     general_abilities
     can :destroy, :sign_in
     can %i[read create update destroy], :item
-    can %i[read create destroy], :order
+    can %i[create destroy], :order
   end
 
   def customer_ability
@@ -42,7 +41,7 @@ class Ability
 
   def general_abilities
     can :destroy, :sign_in
-    can %i[read create destroy], :order
+    can %i[create destroy], :order
     can :create, :item_rate
     can %i[read destroy], :shopcart
   end

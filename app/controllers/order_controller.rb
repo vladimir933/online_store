@@ -1,11 +1,7 @@
-class Store::OrderController < Store::ApplicationController
+class OrderController < ApplicationController
   include OrderHelper
 
   before_action :find_order, only: %i[create destroy]
-
-  def index
-    @items = Item.all
-  end
   
   # add item to cart
   def create

@@ -1,4 +1,4 @@
-class Store::ItemRateController < Store::ApplicationController
+class ItemRateController < ApplicationController
 
   def create
     @rating = ItemRate.new(item_rating_params)
