@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
       resources :items, except: %i[new create edit update] do
         resources :item_rate, only: %i[create destroy]
+        resources :comments, only: %i[create destroy]
       end
 
       root to: 'items#index'

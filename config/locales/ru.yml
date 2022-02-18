@@ -37,6 +37,11 @@ ru:
       users_rate_count: 'Количество пользователей оценивших товар'
       days: 'дней'
 
+      comments:
+        chapter_name: 'Комментарии'
+        create_comment: 'Добавить комментарий'
+        delete_comment: 'Удалить комменарий'
+
     new:
       chapter_name: 'Добавление товара'
       item_name: 'Название товара'

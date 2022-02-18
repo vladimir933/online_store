@@ -1,6 +1,6 @@
 module ItemRateHelper
   def item_rates?
-    user_rate_items
+    user_rate_items.present?
   end
 
   def item_rates

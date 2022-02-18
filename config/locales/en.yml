@@ -37,6 +37,11 @@ en:
       users_rate_count: 'The number of users rated the product'
       days: 'days'
 
+      comments:
+        chapter_name: 'Comments'
+        create_comment: 'Add comment'
+        delete_comment: 'Delete comment'
+
     new:
       chapter_name: 'Adding an item'
       item_name: 'Item name'

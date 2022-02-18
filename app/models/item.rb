@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :carts, through: :orders
   has_many :item_rates, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :name, length: { in: 2..50, message: :name }
   validates :kind, presence: { message: :kind }

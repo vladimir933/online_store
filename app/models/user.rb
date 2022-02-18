@@ -5,6 +5,7 @@ class User < ApplicationRecord
     has_one :cart, dependent: :destroy
     has_many :items, dependent: :destroy
     has_many :item_rates, dependent: :destroy
+    has_many :comments, dependent: :destroy
     
     validates :name, length: { in: 2..30, message: :name }
     validates :surname, length: { in: 2..50, message: :surname }

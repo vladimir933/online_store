@@ -40,6 +40,7 @@ class Ability
   private
 
   def general_abilities
+    can %i[create destroy], :comment
     can :destroy, :sign_in
     can %i[create destroy], :order
     can :create, :item_rate

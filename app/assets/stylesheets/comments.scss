@@ -1,0 +1,42 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.create-comment {
+  padding: 0px 15px 0px;
+}
+
+.show-coments {
+  padding: 5px 10px;
+
+  .comments-body {
+    padding: 5px;
+    font: italic bold 18px Arial, sans-serif;
+  }
+
+  .comment {
+    margin: 10px 0 5px 10px;
+    box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 80%;
+    padding: 10px;
+
+    .commenter-name {
+      font: italic bold 14px Arial, sans-serif;
+    }
+
+    .comment-time {
+      margin-top: 5px;
+      font: italic normal 10px Arial, sans-serif;
+    }
+
+    .comment-body {
+      margin-top: 3px;
+      font: italic normal 16px Arial, sans-serif;
+      word-wrap: break-word;
+    }
+
+    .delete-comment {
+
+    }
+  }
+}
