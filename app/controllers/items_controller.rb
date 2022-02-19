@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create, :edit, :update]
 
   def index
-    @items = Item.all
+    @items = Item.all.page(params[:page]).per(9)
   end
 
   def new
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to root_path
+    redirect_to store_items_path
   end
 
   private

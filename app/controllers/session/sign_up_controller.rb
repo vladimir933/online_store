@@ -6,7 +6,7 @@ class Session::SignUpController < Session::ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     if @user.save
       create_cart(@user)
       redirect_to session_sign_in_path

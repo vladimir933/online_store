@@ -67,6 +67,12 @@ en:
       for_garden: 'for garden'
       for_animals: 'for animals'
 
+    pagination:
+      first: 'First'
+      previous: 'Previous'
+      next: 'Next'
+      last: 'Last'
+
   session:
     sign_in:
       chapter_name: 'Authorization'

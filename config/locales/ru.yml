@@ -67,6 +67,12 @@ ru:
       for_garden: 'для сада'
       for_animals: 'для животных'
 
+    pagination:
+      first: 'Первая'
+      previous: 'Предыдущая'
+      next: 'Следующая'
+      last: 'Последняя'
+
   session:
     sign_in:
       chapter_name: 'Авторизация'

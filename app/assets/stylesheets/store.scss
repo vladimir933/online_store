@@ -146,4 +146,20 @@
       }
     }
   }
+
+  .pagination {
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+    bottom: 1em;
+    right: 1em;
+    text-align: right;
+    font: bold 18px Arial, sans-serif;
+    
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+
 }

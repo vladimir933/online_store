@@ -41,4 +41,12 @@ Cart.create(user_id: 2)
   
   items = Item.create(item)
   items.avatar.attach(io: File.open(Rails.root.join("/home/vladimir/Изображения/#{img}")), filename: img)
+  10.times do |comment|
+    comment = {
+      :user_id => rand(1..2),
+      :comment_time => Time.now.strftime('%d/%m/%Y %H:%M:%S'),
+      :body => (1..rand(500)).map { ('a'..'z').to_a[rand(26)] }.join
+    }
+    items.comments.create(comment)
+  end
 end
