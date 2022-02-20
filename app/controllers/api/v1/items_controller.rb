@@ -2,15 +2,14 @@ module Api
   module V1
     class ItemsController < ApiController
       skip_before_action :check_basic_auth, only: %i[index show]
-      before_action :found_item, only: %i[index show update destroy]
+      before_action :found_item, only: %i[show update destroy]
 
       def index
-        items = Item.all&.where(find_item_params).sort
+        items = Item.all.where(find_item_params).sort
         render json: items
       end
 
       def show
-        
         render json: @item
       end
 
