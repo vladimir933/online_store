@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :items, only: %i[index show create update destroy]
       resources :orders, only: %i[index show destroy]
+      resources :comments, only: %i[index show create update destroy]
     end
   end
 

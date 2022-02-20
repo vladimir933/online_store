@@ -20,6 +20,7 @@ module Api
       def update
         if current_user.items.include?(@item)
           @item.update(item_params)
+          head :accepted
         else
           head :forbidden
         end
@@ -28,6 +29,7 @@ module Api
       def destroy
         if current_user.items.include?(@item)
           @item.destroy
+          head :gone
         else
           head :forbidden
         end
