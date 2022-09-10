@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate
-  authorize_resource class: false
+  # authorize_resource class: false
   around_action :switch_locale
 
   def authenticate

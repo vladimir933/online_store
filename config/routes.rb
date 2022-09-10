@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     namespace :session do
       get 'sign_in', to: 'sign_in#new'
       post 'sign_in', to: 'sign_in#create'
+      # Не работает method: :delete без js
       delete 'logout', to: 'sign_in#destroy'
 
       get 'sign_up', to: 'sign_up#new'

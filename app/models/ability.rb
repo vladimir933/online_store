@@ -11,9 +11,9 @@ class Ability
     case user&.role
     when nil
       public_ability
-    when 'Продавец'
+    when 'seller'
       seller_ability
-    when 'Покупатель'
+    when 'customer'
       customer_ability
     end
   end
